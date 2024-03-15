@@ -3,14 +3,57 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Music Visualizer</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.19.2/dist/css/uikit.min.css" />
         <link rel="stylesheet" href="assets/css/style.css" />
     </head>
 
     <body>
-        <input placeholder="search visuals"></input>
-        <button>go</button>
-        <input placeholder="search songs"></input>
-        <button>go</button>
+        <!--div for background fill-->
+        <div class="uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-center uk-flex-middle" style="background-image: url(./assets/images/bgtest.jpg);">
+            
+            <!--search visuals input-->
+            <form class="uk-search uk-search-large">
+                <span uk-search-icon></span>
+                <input class="uk-search-input" type="search" placeholder="Search Visuals" aria-label="Search">
+            </form>
+
+            <!--search songs input-->
+            <form class="uk-search uk-search-large">
+                <span uk-search-icon></span>
+                <input class="uk-search-input" type="search" placeholder="Search Songs" aria-label="Search">
+            </form>
+
+            <!--saved visualizers modal-->
+            <a class="uk-button uk-button-default" href="#modal-center" uk-toggle>Saved Visualizers</a>
+
+            <div id="modal-center" class="uk-flex-top" uk-modal>
+                <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+
+                    <button class="uk-modal-close-default" type="button" uk-close></button>
+
+                    <p>we need to put a list here with selectable items populated by local storage</p>
+
+                </div>
+            </div>
+
+            <!--save a visualizer modal-->
+            <a class="uk-button uk-button-default" href="#modal-center" uk-toggle>Save a Visualizer</a>
+
+            <div id="modal-center" class="uk-flex-top" uk-modal>
+                <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+
+                    <button class="uk-modal-close-default" type="button" uk-close></button>
+
+                    <p>we need to put an input/form here to save song+visual choice to local storage</p>
+
+                </div>
+            </div>
+
+            <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/uikit@3.19.2/dist/js/uikit.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/uikit@3.19.2/dist/js/uikit-icons.min.js"></script>
+            <script src="./assets/js/script.js"></script>
+        </div>
     </body>
 
 </html>
