@@ -1,5 +1,5 @@
 <html lang="en">
-    <head>
+    <head id="head">
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Music Visualizer</title>
@@ -17,45 +17,39 @@
             <div class="search-container">
                 <!--search visuals input-->
                 <form class="uk-search uk-search-large">
-                    <span uk-search-icon></span>
                     <input class="uk-search-input" type="search" placeholder="Search Visuals" aria-label="Search">
                 </form>
                 
                 <!--search songs input-->
-                <form class="uk-search uk-search-large">
-                    <span uk-search-icon></span>
-                    <input class="uk-search-input" type="search" placeholder="Search Songs" aria-label="Search">
+                <form class="uk-search uk-search-large" onsubmit="search(); return false;">
+                    <input id="searchInput" class="uk-search-input" type="search" placeholder="Search Songs" aria-label="Search">
+                    <div id="results"></div>
                 </form>
             </div>
 
             <!--populate img src through GIPHY API. adjust to fill viewport-->
             <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="center: true">
-
+                <div id="toggle-animation" class="uk-position-center uk-panel"><h1>1</h1></div>
                 <ul class="uk-slider-items uk-grid uk-grid-match" uk-height-viewport="offset-top: true; offset-bottom: 30">
                     <li class="uk-width-3-4">
                         <div class="uk-cover-container">
-                            <div class="uk-position-center uk-panel"><h1>1</h1></div>
+                            
                         </div>
                     </li>
                     <li class="uk-width-3-4">
                         <div class="uk-cover-container">
-                            <div class="uk-position-center uk-panel"><h1>2</h1></div>
                         </div>
                     </li>
                     <li class="uk-width-3-4">
                         <div class="uk-cover-container">
-                            <div class="uk-position-center uk-panel"><h1>3</h1></div>
                         </div>
                     </li>
                     <li class="uk-width-3-4">
                         <div class="uk-cover-container">
-                            <!--delete me when def don't need--><img src="images/photo3.jpg" alt="" uk-cover>
-                            <div class="uk-position-center uk-panel"><h1>4</h1></div>
                         </div>
                     </li>
                     <li class="uk-width-3-4">
                         <div class="uk-cover-container">
-                            <div class="uk-position-center uk-panel"><h1>5</h1></div>
                         </div>
                     </li>
                 </ul>
@@ -78,7 +72,6 @@
                 <!--edit button target. use toggle-animation id for lyrics. potentially move this div to middle of body-->
                 <div class="lyrics-container">
                     <button href="#toggle-animation" class="uk-button uk-button-default save-button" type="button" uk-toggle="target: #toggle-animation; animation: uk-animation-fade">Toggle</button>
-                    <div id="toggle-animation" class="uk-card uk-card-default uk-card-body uk-margin-small">Animation</div>
                 </div>
 
 
