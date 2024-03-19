@@ -1,0 +1,73 @@
+
+@font-face {
+    font-family: 'Bangers-Regular';
+    src: url('./fonts/Bangers-Regular/Bangers-Regular.ttf') format('opentype');
+}
+
+* {
+    font-family: 'Bangers-Regular';
+}
+
+.uk-slider-container {
+    /* position: absolute !important; */
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.uk-grid {
+    width: 100%;
+    margin: 0px;
+    height: 100vh;
+}
+
+.uk-width-3-4 {
+    background-image: url(https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbG9wc2Ewenl5eGxseHFkZmxwZjltN3FkN25uend5cjQ5MGV4ODJ0ciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/cyMqOH8rjgDHG/giphy.gif);
+    background-size: cover;
+    background-position: center;
+    min-width: 100vw;
+    padding: 0px;
+}
+
+.uk-cover-container {
+    background-image: url(https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbG9wc2Ewenl5eGxseHFkZmxwZjltN3FkN25uend5cjQ5MGV4ODJ0ciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/cyMqOH8rjgDHG/giphy.gif);
+    background-size: contain;
+    background-repeat: no-repeat;
+    backdrop-filter: hue-rotate(30deg) blur(5px);
+    background-position: center;
+    padding: 0px;
+    margin: 0px;
+}
+
+.np-container {
+    position: fixed;
+    bottom: 1vh;
+    left: 1vw;
+}
+
+.search-container {
+    display: flex; /* Use flexbox layout */
+    justify-content: center; /* Spread the forms evenly across the container */
+    width: 100%; /* Optional: Adjust the width of the container */
+    position: absolute;
+    top: 1vh;
+    z-index: 1;
+}
+
+.np-song, .np-artist, .np-bg {
+    padding: 0px;
+    margin: 0px;
+}
+
+.br-container {
+    position: fixed;
+    justify-content: right;
+    bottom: 0;
+    right: 0;
+}
+
+.save-button {
+    width: 15vw;
+}
+

@@ -9,51 +9,128 @@
 
     <body>
         <!--div for background fill-->
-        <div class="uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-center uk-flex-middle" style="background-image: url(./assets/images/bgtest.jpg);">
-            
-            <!--search visuals input-->
-            <form class="uk-search uk-search-large">
-                <span uk-search-icon></span>
-                <input class="uk-search-input" type="search" placeholder="Search Visuals" aria-label="Search">
-            </form>
-
-            <!--search songs input-->
-            <form class="uk-search uk-search-large">
-                <span uk-search-icon></span>
-                <input class="uk-search-input" type="search" placeholder="Search Songs" aria-label="Search">
-            </form>
-
-            <!--saved visualizers modal-->
-            <a class="uk-button uk-button-default" href="#modal-center" uk-toggle>Saved Visualizers</a>
-
-            <div id="modal-center" class="uk-flex-top" uk-modal>
-                <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
-
-                    <button class="uk-modal-close-default" type="button" uk-close></button>
-
-                    <p>we need to put a list here with selectable items populated by local storage</p>
-
-                </div>
+        
+        <!--
+        <div class="uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-center uk-flex-middle" style="background-image: url(./assets/images/bgtest.jpg);"></div>
+        -->
+        
+            <div class="search-container">
+                <!--search visuals input-->
+                <form class="uk-search uk-search-large">
+                    <span uk-search-icon></span>
+                    <input class="uk-search-input" type="search" placeholder="Search Visuals" aria-label="Search">
+                </form>
+                
+                <!--search songs input-->
+                <form class="uk-search uk-search-large">
+                    <span uk-search-icon></span>
+                    <input class="uk-search-input" type="search" placeholder="Search Songs" aria-label="Search">
+                </form>
             </div>
 
-            <!--save a visualizer modal-->
-            <a class="uk-button uk-button-default" href="#modal-center" uk-toggle>Save a Visualizer</a>
+            <!--populate img src through GIPHY API. adjust to fill viewport-->
+            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="center: true">
 
-            <div id="modal-center" class="uk-flex-top" uk-modal>
-                <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+                <ul class="uk-slider-items uk-grid uk-grid-match" uk-height-viewport="offset-top: true; offset-bottom: 30">
+                    <li class="uk-width-3-4">
+                        <div class="uk-cover-container">
+                            <div class="uk-position-center uk-panel"><h1>1</h1></div>
+                        </div>
+                    </li>
+                    <li class="uk-width-3-4">
+                        <div class="uk-cover-container">
+                            <div class="uk-position-center uk-panel"><h1>2</h1></div>
+                        </div>
+                    </li>
+                    <li class="uk-width-3-4">
+                        <div class="uk-cover-container">
+                            <div class="uk-position-center uk-panel"><h1>3</h1></div>
+                        </div>
+                    </li>
+                    <li class="uk-width-3-4">
+                        <div class="uk-cover-container">
+                            <!--delete me when def don't need--><img src="images/photo3.jpg" alt="" uk-cover>
+                            <div class="uk-position-center uk-panel"><h1>4</h1></div>
+                        </div>
+                    </li>
+                    <li class="uk-width-3-4">
+                        <div class="uk-cover-container">
+                            <div class="uk-position-center uk-panel"><h1>5</h1></div>
+                        </div>
+                    </li>
+                </ul>
 
-                    <button class="uk-modal-close-default" type="button" uk-close></button>
+                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href uk-slidenav-previous uk-slider-item="previous"></a>
+                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href uk-slidenav-next uk-slider-item="next"></a>
 
-                    <p>we need to put an input/form here to save song+visual choice to local storage</p>
+            </div>
+
+
+            <!---->
+            <div class="np-container">
+                <h1 class="np-song">Song Name</h1>
+                <h2 class="np-artist">Artist Name</h2>
+                <h3 class="np-bg">Background Video</h3>
+            </div>
+
+            <div class="br-container">
+
+                <!--edit button target. use toggle-animation id for lyrics. potentially move this div to middle of body-->
+                <div class="lyrics-container">
+                    <button href="#toggle-animation" class="uk-button uk-button-default save-button" type="button" uk-toggle="target: #toggle-animation; animation: uk-animation-fade">Toggle</button>
+                    <div id="toggle-animation" class="uk-card uk-card-default uk-card-body uk-margin-small">Animation</div>
+                </div>
+
+
+                <!--saved visualizers modal-->
+                <div class="modals-container">
+
+                    <div class="saved-visualzers">
+
+                        <a class="uk-button uk-button-default save-button" href="#modal-center1" uk-toggle>Saved Visualizers</a>
+
+                        <div id="modal-center1" class="uk-flex-top" uk-modal>
+                            <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+
+                                <button class="uk-modal-close-default" type="button" uk-close></button>
+
+                                <ul class="saved-visualzers-list">
+                                    <li>test</li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!--save a visualizer modal-->
+                    <div class="save-visualzers">
+                        <a class="uk-button uk-button-default save-button" href="#modal-center2" uk-toggle>Save a Visualizer</a>
+
+                        <div id="modal-center2" class="uk-flex-top" uk-modal>
+                            <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+
+                                <button class="uk-modal-close-default" type="button" uk-close></button>
+
+                                <form>
+                                    <span>Name your visualizer:   </span>
+                                    <input class="uk-input uk-width-1-1" type="text" placeholder="uk-width-1-1" aria-label="uk-width-1-1">
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
-            </div>
+            </div>   
+
+
 
             <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/uikit@3.19.2/dist/js/uikit.min.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/uikit@3.19.2/dist/js/uikit-icons.min.js"></script>
             <script src="./assets/js/script.js"></script>
-        </div>
+        
     </body>
 
 </html>
