@@ -97,6 +97,28 @@ function displayResults(tracks) {
                     audio.play(); // Start playing the new audio
                     currentAudio = audio; // Update the reference to the currently playing audio
                 }
+
+                function fetchLyrics() {
+                    // Replace "artist" and "title" with your desired artist and song title
+                    const artist = encodeURIComponent(track.artists[0].name);
+                    const title = encodeURIComponent(track.name);
+                    
+                    // Fetch lyrics from lyrics.ovh API
+                    fetch(`https://api.lyrics.ovh/v1/${artist}/${title}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.lyrics) {
+                                document.getElementById('lyrics').textContent = data.lyrics.replace(/\n/g, "<br>");
+                            } else {
+                                document.getElementById('lyrics').textContent = "Lyrics not found.";
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error fetching lyrics:', error);
+                            document.getElementById('lyrics').innerHTML = "Error fetching lyrics.";
+                        });
+                }
+                fetchLyrics();
             };
             ul.appendChild(li);
             count++;

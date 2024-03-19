@@ -17,7 +17,7 @@
             <div class="search-container">
                 <!--search visuals input-->
                 <form class="uk-search uk-search-large">
-                    <input class="uk-search-input" type="search" placeholder="Search Visuals" aria-label="Search">
+                    <input class="uk-search-input" type="search" autocomplete="off" placeholder="Search Visuals" aria-label="Search">
                 </form>
                 
                 <!--search songs input-->
@@ -29,7 +29,7 @@
 
             <!--populate img src through GIPHY API. adjust to fill viewport-->
             <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="center: true">
-                <div id="toggle-animation" class="uk-position-center uk-panel"><h1>1</h1></div>
+                <div id="toggle-animation" class="uk-position-center uk-panel"><p id="lyrics">1</p></div>
                 <ul class="uk-slider-items uk-grid uk-grid-match" uk-height-viewport="offset-top: true; offset-bottom: 30">
                     <li class="uk-width-3-4">
                         <div class="uk-cover-container">
