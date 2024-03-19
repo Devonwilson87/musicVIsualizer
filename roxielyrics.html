@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lyrics Display</title>
+</head>
+<body>
+
+<h1>Lyrics Display</h1>
+<button onclick="fetchLyrics()">Get Lyrics</button>
+<div id="lyrics"></div>
+
+<script>
+function fetchLyrics() {
+    // Replace "artist" and "title" with your desired artist and song title
+    const artist = encodeURIComponent("TLC");
+    const title = encodeURIComponent("WaterFalls");
+    
+    // Fetch lyrics from lyrics.ovh API
+    fetch(`https://api.lyrics.ovh/v1/${artist}/${title}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.lyrics) {
+                document.getElementById('lyrics').innerHTML = data.lyrics.replace(/\n/g, "<br>");
+            } else {
+                document.getElementById('lyrics').innerHTML = "Lyrics not found.";
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching lyrics:', error);
+            document.getElementById('lyrics').innerHTML = "Error fetching lyrics.";
+        });
+}
+</script>
+
+</body>
+</html>

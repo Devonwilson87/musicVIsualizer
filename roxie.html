@@ -3,13 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spotify API Music Example</title>
+    <title>Spotify API1 Music Samples</title>
 </head>
 <body>
     <h1>Spotify API Example</h1>
-    <input type="text" id="searchInput" placeholder="Search for a track...">
-    <button onclick="search()">Search</button>
+    <input type="text" id="searchInput" placeholder="Search for Artist or Song">
+    <button onclick="search()">Explore</button>
     <div id="results"></div>
+
+    <div>
+        <!-- Paste the copied Spotify embed code here -->
+        <iframe src="https://api.spotify.com/v1/search?q=${encodeURIComponent(searchInput)}&type=track" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        
+    </div>
+
+
+    
 
     <script>
         const clientID = '66fe6133fda54d3aa9b93bd5d3b1f556';
@@ -32,6 +41,7 @@
 
             const data = await response.json();
             accessToken = data.access_token;
+            console.log(data);
         }
 
         async function search() {
@@ -56,6 +66,7 @@
 
         if (response.ok) {
             const data = await response.json();
+            console.log(data);
             displayResults(data.tracks.items);
         } else {
             throw new Error('Failed to fetch data');
