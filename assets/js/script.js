@@ -1,9 +1,3 @@
-const clientID = '66fe6133fda54d3aa9b93bd5d3b1f556';
-const clientSecret = 'ae2a46d282a84661a62a4c625a43c180';
-
-// Base64 encode clientID:clientSecret
-const basicToken = btoa(`${clientID}:${clientSecret}`);
-
 let accessToken = '';
 
 async function getToken() {
@@ -11,7 +5,7 @@ async function getToken() {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Authorization': `Basic ${basicToken}`
+            'Authorization': `Basic NjZmZTYxMzNmZGE1NGQzYWE5YjkzYmQ1ZDNiMWY1NTY6NTQ4OTMxYjU1MmJiNDE1NGE2ZDE0ODU2MDg4Yzc0NDc=`
         },
         body: 'grant_type=client_credentials'
     });
@@ -73,9 +67,19 @@ function displayResults(tracks) {
 
     tracks.forEach(track => {
         if (count < 5) {
+
+            if (!track.preview_url) return;
+
             const li = document.createElement('li');
+            
             li.textContent = track.name + ' - ' + track.artists[0].name;
             li.onclick = function() {
+
+                resultsContainer.removeChild(ul);
+
+                searchInput.value = '';
+
+
                 // Remove any existing audio elements from other li's
                 const headAudios = document.querySelectorAll('#head audio');
                 headAudios.forEach(function(audio) {
@@ -98,19 +102,27 @@ function displayResults(tracks) {
                     currentAudio = audio; // Update the reference to the currently playing audio
                 }
 
+                    // Populate np-artist and np-song elements
+                const npArtistElement = document.getElementById('np-artist');
+                const npSongElement = document.getElementById('np-song');
+                npArtistElement.textContent = track.artists[0].name;
+                npSongElement.textContent = track.name;
+
+                
+
                 function fetchLyrics() {
                     // Replace "artist" and "title" with your desired artist and song title
                     const artist = encodeURIComponent(track.artists[0].name);
                     const title = encodeURIComponent(track.name);
-                    
+
                     // Fetch lyrics from lyrics.ovh API
                     fetch(`https://api.lyrics.ovh/v1/${artist}/${title}`)
                         .then(response => response.json())
                         .then(data => {
                             if (data.lyrics) {
-                                document.getElementById('lyrics').textContent = data.lyrics.replace(/\n/g, "<br>");
+                                document.getElementById('lyrics').innerHTML = data.lyrics.split('\r\n').pop();
                             } else {
-                                document.getElementById('lyrics').textContent = "Lyrics not found.";
+                                document.getElementById('lyrics').innerHTML = "Lyrics not found.";
                             }
                         })
                         .catch(error => {

@@ -84,3 +84,6 @@
     width: 15vw;
 }
 
+#lyrics {
+    white-space: pre-wrap;
+}
