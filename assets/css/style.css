@@ -1,0 +1,111 @@
+
+@font-face {
+    font-family: 'SulphurPoint-Regular';
+    src: url('./fonts/SulphurPoint-Regular.ttf') format('opentype');
+}
+
+* {
+    font-family: 'SulphurPoint-Regular' !important;
+}
+
+.uk-slider-container {
+    /* position: absolute !important; */
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.uk-grid {
+    width: 100%;
+    margin: 0px;
+    height: 100vh;
+}
+
+.uk-width-3-4 {
+    background-image: url(https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExYWhiYjhiczB6Y3RweWE2YjFpNTgyOXJkMmE3Z2gxdmp4MzEzenQ3bCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/t3yCdRxU8seVBaUUQA/giphy.gif);
+    background-size: cover;
+    background-position: center;
+    min-width: 100vw;
+    padding: 0px;
+}
+
+.uk-cover-container {
+    background-image: url(https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExYWhiYjhiczB6Y3RweWE2YjFpNTgyOXJkMmE3Z2gxdmp4MzEzenQ3bCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/t3yCdRxU8seVBaUUQA/giphy.gif);
+    background-size: contain;
+    background-repeat: no-repeat;
+    backdrop-filter: hue-rotate(30deg) blur(5px);
+    background-position: center;
+    padding: 0px;
+    margin: 0px;
+}
+
+.np-container {
+    position: fixed;
+    bottom: 1vh;
+    left: 1vw;
+}
+
+.np-container h1, h2, h3 {
+    margin: 0;
+    padding: 0;
+}
+
+.search-container {
+    display: flex; /* Use flexbox layout */
+    justify-content: center;
+    width: 100%; /* Optional: Adjust the width of the container */
+    position: absolute;
+    top: 1vh;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+#search-songs {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    background-color: rgba(0, 255, 255, 50%);
+
+}
+
+#search-visuals {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    background-color: rgba(255, 0, 255, 0.5);
+}
+
+.song-results-list {
+    list-style-type: none;
+}
+
+.song-results-list li a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.np-song, .np-artist, .np-bg {
+    padding: 0px;
+    margin: 0px;
+}
+
+.br-container {
+    position: fixed;
+    justify-content: right;
+    bottom: 0;
+    right: 0;
+}
+
+#toggle-animation {
+    z-index: 1;
+}
+
+.save-button {
+    width: 15vw;
+}
+
+#lyrics {
+    white-space: pre-wrap;
+}
