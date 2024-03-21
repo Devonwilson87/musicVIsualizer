@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify API1 Music Samples</title>
+</head>
+    <h1>Spotify API Example</h1>
+    <input type="text" id="searchInput" placeholder="Search Tenor.">
+    <button onclick="search()">Explore</button>
+    <div id="results"></div>
+
+
+
+    <script>
+       const apiKey = ''; // Replace with your Tenor API key
+        const searchTerm = document.getElementById('searchInput').value.trim(); // Replace with your desired search term
+
+        const apiUrl = `https://api.tenor.com/v1/search?q=${searchTerm}&key=${apiKey}`;
+
+        fetch(apiUrl)
+        .then(response => {
+            if (!response.ok) {
+            throw new Error('Network response was not ok');
+            }
+            return response.json(); // Parse the JSON response
+        })
+        .then(data => {
+            // Process the response data
+            console.log(data);
+        })
+        .catch(error => {
+            // Handle errors
+            console.error('There was a problem with the fetch operation:', error);
+        }); 
+    </script>
+</html> 
