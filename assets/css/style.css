@@ -1,11 +1,11 @@
 
 @font-face {
-    font-family: 'Bangers-Regular';
-    src: url('./fonts/Bangers-Regular/Bangers-Regular.ttf') format('opentype');
+    font-family: 'SulphurPoint-Regular';
+    src: url('./fonts/SulphurPoint-Regular.ttf') format('opentype');
 }
 
 * {
-    font-family: 'Bangers-Regular';
+    font-family: 'SulphurPoint-Regular' !important;
 }
 
 .uk-slider-container {
@@ -46,13 +46,35 @@
     left: 1vw;
 }
 
+.np-container h1, h2, h3 {
+    margin: 0;
+    padding: 0;
+}
+
 .search-container {
     display: flex; /* Use flexbox layout */
-    justify-content: center; /* Spread the forms evenly across the container */
+    justify-content: center;
     width: 100%; /* Optional: Adjust the width of the container */
     position: absolute;
     top: 1vh;
+    left: 0;
+    right: 0;
     z-index: 1;
+}
+
+#search-songs {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    background-color: rgba(0, 255, 255, 50%);
+
+}
+
+#search-visuals {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    background-color: rgba(255, 0, 255, 0.5);
 }
 
 .song-results-list {

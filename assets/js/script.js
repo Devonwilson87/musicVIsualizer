@@ -110,25 +110,51 @@ function displayResults(tracks) {
 
                 
 
+                let currentStanzaIndex = 0; // Keep track of the currently displayed stanza index
+
                 function fetchLyrics() {
                     // Replace "artist" and "title" with your desired artist and song title
                     const artist = encodeURIComponent(track.artists[0].name);
                     const title = encodeURIComponent(track.name);
-
+                
                     // Fetch lyrics from lyrics.ovh API
                     fetch(`https://api.lyrics.ovh/v1/${artist}/${title}`)
                         .then(response => response.json())
                         .then(data => {
+                            const lyricsElement = document.getElementById('lyrics');
+                            lyricsElement.innerHTML = ''; // Clear existing lyrics
+                            
                             if (data.lyrics) {
-                                document.getElementById('lyrics').innerHTML = data.lyrics.split('\r\n').pop();
+                                const stanzas = data.lyrics.split('\n\n');
+                                stanzas.forEach((stanza, index) => {
+                                    const stanzaElement = document.createElement('p');
+                                    stanzaElement.textContent = stanza;
+                                    stanzaElement.style.display = index === 0 ? 'block' : 'none'; // Show the first stanza, hide others
+                                    stanzaElement.onclick = () => showNextStanza(index); // Set onclick handler to show next stanza
+                                    lyricsElement.appendChild(stanzaElement);
+                                });
                             } else {
-                                document.getElementById('lyrics').innerHTML = "Lyrics not found.";
+                                lyricsElement.textContent = "Lyrics not found.";
                             }
                         })
                         .catch(error => {
                             console.error('Error fetching lyrics:', error);
-                            document.getElementById('lyrics').innerHTML = "Error fetching lyrics.";
+                            document.getElementById('lyrics').textContent = "Error fetching lyrics.";
                         });
+                }
+                
+                function showNextStanza(index) {
+                    const lyricsElement = document.getElementById('lyrics');
+                    const stanzas = lyricsElement.querySelectorAll('p');
+                
+                    if (index < stanzas.length - 1) { // If not the last stanza
+                        stanzas[index].style.display = 'none'; // Hide current stanza
+                        stanzas[index + 1].style.display = 'block'; // Show next stanza
+                        currentStanzaIndex = index + 1; // Update current stanza index
+                    } else {
+                        // Handle when the last stanza is reached (optional)
+                        console.log('End of lyrics');
+                    }
                 }
                 fetchLyrics();
             };

@@ -10,17 +10,19 @@
     <body>
         
             <div class="search-container">
-                <!--search visuals input-->
-                <form class="uk-search uk-search-large">
-                    <input class="uk-search-input" type="search" autocomplete="off" placeholder="Search Visuals" aria-label="Search" autocomplete="off">
-                </form>
-                
                 <!--search songs input-->
-                <form class="uk-search uk-search-large" onsubmit="search(); return false;">
+                <form id="search-songs" class="uk-search uk-search-large" onsubmit="search(); return false;">
                     <input id="searchInput" class="uk-search-input" type="search" placeholder="Search Songs" aria-label="Search" autocomplete="off">
                     <div id="results"></div>
                 </form>
-            </div>
+            
+
+                <!--search visuals input-->
+                <form id="search-visuals" class="uk-search uk-search-large">
+                    <input class="uk-search-input" type="search" autocomplete="off" placeholder="Search Visuals" aria-label="Search" autocomplete="off">
+                </form>
+            </div>    
+
 
             <!--populate img src through GIPHY API. adjust to fill viewport-->
             <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="center: true">
