@@ -182,7 +182,8 @@ function fetchBgs() {
             const hits = data.hits;
             const shuffledHits = shuffleArray(hits);
             const ul = document.createElement('ul');
-            const maxItems = Math.min(shuffledHits.length, 5); // Maximum of 5 list items
+            ul.setAttribute('id', 'list-bgs');
+            const maxItems = Math.min(shuffledHits.length, 6); // Maximum of 5 list items
 
             for (let i = 0; i < maxItems; i++) {
                 const hit = shuffledHits[i];
