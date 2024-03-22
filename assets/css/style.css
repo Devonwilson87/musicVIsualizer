@@ -37,7 +37,6 @@
     bottom: 1vh;
     left: 1vw;
     padding: 1vh;
-    background-color: rgba(0, 255, 255, 10%);
     border-radius: 2vh;
 }
 
@@ -47,14 +46,25 @@
     padding: 0;
 }
 
+.np-container:hover {
+    background-color: rgba(0, 255, 149, 0.50); /* Change background color on focus */
+}
+
+.np-container:hover #np-song,
+.np-container:hover #np-artist,
+.np-container:hover #np-bg {
+    color: rgba(105, 7, 0, 0.74);
+}
+
+
 .search-container {
     display: flex; /* Use flexbox layout */
     justify-content: space-between;
     align-content: center;
-    width: 100%; /* Optional: Adjust the width of the container */
+    width: 95vw; /* Optional: Adjust the width of the container */
     position: absolute;
     top: 1vh;
-    left: 0;
+    left: 2.5vw;
     right: 0;
     z-index: 2;
 }
@@ -75,18 +85,25 @@
 
 .song-results-list {
     list-style-type: none;
-    background-color: rgba(0, 255, 255, 40%);
-    border: 2px solid rgba(0, 255, 149, 0.50);
-    border-radius: 15px;
+    border-radius: 8px;
     margin-bottom: 0;
+    margin-left: 5%;
     padding-left: 0;
+    width: 90%;
 }
 
 .song-results-list li {
-    border: 2px solid rgba(0, 255, 149, 0.50);
-    border-radius: 14px;
-    padding: .5vw;
-    margin:.25vw;
+    color: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    padding: 5px;
+    margin:5px;
+    transition: .25s;
+}
+
+.song-results-list li:hover {
+    color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(0, 255, 149, 0.50);
+    color: rgba(105, 7, 0, 0.74);
 }
 
 .song-results-list li a {
@@ -94,36 +111,57 @@
     color: inherit;
 }
 
-.np-song, .np-artist, .np-bg {
-    padding: 0px;
-    margin: 0px;
-}
+
 
 .br-container {
     position: fixed;
     justify-content: right;
-    bottom: 0;
-    right: 0;
+    border: none;
+    bottom: 5px;
+    right: 15px;
 }
+
+
+.uk-button {
+    border: none;
+    border-radius: 10px;
+    color:  rgba(255, 255, 255, 0.8);
+    font-size: 115%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    width: 100%;
+}
+
+.uk-button:hover {
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(0, 255, 149, 0.50);
+    color: rgba(105, 7, 0, 0.74);
+    font-size: 115%;
+}
+
 
 #toggle-animation {
     z-index: 1;
 }
 
-.save-button {
-    width: 15vw;
-}
 
 #lyrics {
     white-space: pre-wrap;
 }
 
+#search-sgs {
+    margin-bottom: 2.5px;
+}
+
 #search-sgs,
 #search-bgs {
-    padding: 10px; /* Add some padding to give space around the text */
+    padding: 15px; /* Add some padding to give space around the text */
     border: none; /* Remove the border */
     border-radius: 5vh; /* Add border-radius for rounded corners */
     transition: background-color 0.3s; /* Add transition for smooth color change */
+    color: rgba(255, 255, 255, 0.8);
 }
 
 #search-sgs::placeholder,
@@ -135,4 +173,6 @@
 #search-bgs:focus {
     background-color: rgba(0, 255, 149, 0.50); /* Change background color on focus */
     outline: none; /* Remove default focus outline */
+    color: rgba(105, 7, 0, 0.74);
 }
+
