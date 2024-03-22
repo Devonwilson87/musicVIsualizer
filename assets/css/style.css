@@ -34,7 +34,7 @@
     background-image: url(https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGh6N2l2ajU4MG40YXFtMnlweHc4bGw0dmRxdjVxMGZtcWtlcDJrdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/13bGgH9VnEDsuA/giphy.gif);
     background-size: contain;
     background-repeat: no-repeat;
-    backdrop-filter: hue-rotate(30deg) blur(5px);
+    backdrop-filter: hue-rotate(90deg) blur(50px) !important;
     background-position: center;
     padding: 0px;
     margin: 0px;
@@ -53,41 +53,45 @@
     position: fixed;
     bottom: 1vh;
     left: 1vw;
+    padding: 1vh;
+    background-color: rgba(0, 255, 255, 10%);
+    border-radius: 2vh;
 }
 
 .np-container h1, h2, h3 {
+    color: rgba(255, 255, 255, 0.8);
     margin: 0;
     padding: 0;
 }
 
 .search-container {
     display: flex; /* Use flexbox layout */
-    justify-content: center;
+    justify-content: space-between;
+    align-content: center;
     width: 100%; /* Optional: Adjust the width of the container */
     position: absolute;
     top: 1vh;
     left: 0;
     right: 0;
     z-index: 1;
+    background-color: rgba(0, 255, 255, 20%);
 }
 
 #search-songs {
     display: inline-block;
     padding: 0;
     margin: 0;
-    background-color: rgba(0, 255, 255, 50%);
-
 }
 
 #search-visuals {
     display: inline-block;
     padding: 0;
     margin: 0;
-    background-color: rgba(255, 0, 255, 0.5);
 }
 
 .song-results-list {
     list-style-type: none;
+    background-color: rgba(0, 255, 255, 40%);
 }
 
 .song-results-list li a {
@@ -117,4 +121,23 @@
 
 #lyrics {
     white-space: pre-wrap;
+}
+
+#search-sgs,
+#search-bgs {
+    padding: 10px; /* Add some padding to give space around the text */
+    border: none; /* Remove the border */
+    border-radius: 5vh; /* Add border-radius for rounded corners */
+    transition: background-color 0.3s; /* Add transition for smooth color change */
+}
+
+#search-sgs::placeholder,
+#search-bgs::placeholder {
+    color: rgba(255, 255, 255, 0.8); /* Set the placeholder text color */
+}
+
+#search-sgs:focus,
+#search-bgs:focus {
+    background-color: rgba(0, 255, 149, 0.50); /* Change background color on focus */
+    outline: none; /* Remove default focus outline */
 }

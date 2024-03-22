@@ -21,7 +21,7 @@ if (!accessToken) {
 await getToken();
 }
 
-const searchInput = document.getElementById('searchInput').value.trim();
+const searchInput = document.getElementById('search-sgs').value.trim();
 if (!searchInput) {
 console.error('Please enter a search query');
 return;
@@ -194,7 +194,9 @@ function fetchBgs() {
                 img.onclick = function() { // Add onclick event handler
                     ul.remove(); // Remove the <ul> element from the DOM
                     const videoUrl = this.getAttribute('data-video-url');
+                    $('#bg-fill').css('background-image', 'none');
                     $('#bg-fill').html('<video autoplay muted loop><source src="' + videoUrl + '" type="video/mp4"></video>');
+                    $('.uk-cover-container').css('background-image', 'url(' + hit.videos.medium.thumbnail + ')');
                 };
                 li.appendChild(img);
                 ul.appendChild(li);
