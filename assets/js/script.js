@@ -168,3 +168,50 @@ function displayResults(tracks) {
     const resultsDiv = document.getElementById('results');
     resultsDiv.appendChild(ul);
 }
+
+var API_KEY = '43005631-c2ca87ba477823d6f27abd8e4';
+
+
+function fetchBgs() {
+    const searchInput = document.getElementById('search-bgs').value.trim();
+    var URL = "https://pixabay.com/api/videos/?key="+API_KEY+"&q="+searchInput;
+
+    $.getJSON(URL, function(data) {
+        if (parseInt(data.totalHits) > 0) {
+            const bgList = document.getElementById('results-bgs');
+            const hits = data.hits;
+            const shuffledHits = shuffleArray(hits);
+            const ul = document.createElement('ul');
+            const maxItems = Math.min(shuffledHits.length, 5); // Maximum of 5 list items
+
+            for (let i = 0; i < maxItems; i++) {
+                const hit = shuffledHits[i];
+                const li = document.createElement('li');
+                const img = document.createElement('img');
+                img.src = hit.videos.tiny.thumbnail;
+                img.alt = hit.tags;
+                img.setAttribute('data-video-url', hit.videos.large.url); // Set data attribute for video URL
+                img.onclick = function() { // Add onclick event handler
+                    ul.remove(); // Remove the <ul> element from the DOM
+                    const videoUrl = this.getAttribute('data-video-url');
+                    $('#bg-fill').html('<video autoplay muted loop><source src="' + videoUrl + '" type="video/mp4"></video>');
+                };
+                li.appendChild(img);
+                ul.appendChild(li);
+            }
+            bgList.innerHTML = ''; // Clear previous content
+            bgList.appendChild(ul); // Append the <ul> element to the #results-bgs div
+        } else {
+            console.log('No hits');
+        }
+    });
+}
+
+// Function to shuffle an array
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}

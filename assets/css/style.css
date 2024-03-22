@@ -40,6 +40,15 @@
     margin: 0px;
 }
 
+#results-bgs ul li img {
+    max-width: 130px;
+}
+
+#results-bgs ul {
+    list-style: none;
+}
+
+
 .np-container {
     position: fixed;
     bottom: 1vh;

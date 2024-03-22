@@ -18,8 +18,9 @@
             
 
                 <!--search visuals input-->
-                <form id="search-visuals" class="uk-search uk-search-large">
-                    <input class="uk-search-input" type="search" autocomplete="off" placeholder="Search Visuals" aria-label="Search" autocomplete="off">
+                <form id="search-visuals" class="uk-search uk-search-large" onsubmit="fetchBgs(); return false;">
+                    <input id="search-bgs" class="uk-search-input" type="search" placeholder="Search Visuals" aria-label="Search" autocomplete="off">
+                    <div id="results-bgs"></div>
                 </form>
             </div>    
 
@@ -29,7 +30,7 @@
                 <div id="toggle-animation" class="uk-position-center uk-panel"><span id="lyrics">1</span></div>
                 <ul class="uk-slider-items uk-grid uk-grid-match" uk-height-viewport="offset-top: true; offset-bottom: 30">
                     <li class="uk-width-3-4">
-                        <div class="uk-cover-container">
+                        <div id="bg-fill" class="uk-cover-container">
                             
                         </div>
                     </li>
