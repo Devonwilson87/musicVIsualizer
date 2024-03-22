@@ -21,13 +21,13 @@ if (!accessToken) {
 await getToken();
 }
 
-const searchInput = document.getElementById('search-sgs').value.trim();
-if (!searchInput) {
+const searchInputSg = document.getElementById('search-sgs').value.trim();
+if (!searchInputSg) {
 console.error('Please enter a search query');
 return;
 }
 
-const apiUrl = `https://api.spotify.com/v1/search?q=${encodeURIComponent(searchInput)}&type=track`;
+const apiUrl = `https://api.spotify.com/v1/search?q=${encodeURIComponent(searchInputSg)}&type=track`;
 
 try {
 const response = await fetch(apiUrl, {
@@ -77,7 +77,7 @@ function displayResults(tracks) {
 
                 resultsContainer.removeChild(ul);
 
-                searchInput.value = '';
+                document.getElementById('search-sgs').value = '';
 
 
                 // Remove any existing audio elements from other li's
@@ -173,8 +173,8 @@ var API_KEY = '43005631-c2ca87ba477823d6f27abd8e4';
 
 
 function fetchBgs() {
-    const searchInput = document.getElementById('search-bgs').value.trim();
-    var URL = "https://pixabay.com/api/videos/?key="+API_KEY+"&q="+searchInput;
+    const searchInputBg = document.getElementById('search-bgs').value.trim();
+    var URL = "https://pixabay.com/api/videos/?key="+API_KEY+"&q="+searchInputBg;
 
     $.getJSON(URL, function(data) {
         if (parseInt(data.totalHits) > 0) {
@@ -192,11 +192,11 @@ function fetchBgs() {
                 img.alt = hit.tags;
                 img.setAttribute('data-video-url', hit.videos.large.url); // Set data attribute for video URL
                 img.onclick = function() { // Add onclick event handler
+                    document.getElementById('search-bgs').value = '';
                     ul.remove(); // Remove the <ul> element from the DOM
                     const videoUrl = this.getAttribute('data-video-url');
                     $('#bg-fill').css('background-image', 'none');
                     $('#bg-fill').html('<video autoplay muted loop><source src="' + videoUrl + '" type="video/mp4"></video>');
-                    $('.uk-cover-container').css('background-image', 'url(' + hit.videos.medium.thumbnail + ')');
                     
                     // Make the video fill the viewport
                     $('#bg-fill video').css({

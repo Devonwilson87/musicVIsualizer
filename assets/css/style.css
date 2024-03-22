@@ -56,18 +56,19 @@
     top: 1vh;
     left: 0;
     right: 0;
-    z-index: 1;
-    background-color: rgba(0, 255, 255, 20%);
+    z-index: 2;
 }
 
 #search-songs {
     display: inline-block;
+    max-width: 40vw;
     padding: 0;
     margin: 0;
 }
 
 #search-visuals {
     display: inline-block;
+    max-width: 40vw;
     padding: 0;
     margin: 0;
 }
@@ -75,6 +76,17 @@
 .song-results-list {
     list-style-type: none;
     background-color: rgba(0, 255, 255, 40%);
+    border: 2px solid rgba(0, 255, 149, 0.50);
+    border-radius: 15px;
+    margin-bottom: 0;
+    padding-left: 0;
+}
+
+.song-results-list li {
+    border: 2px solid rgba(0, 255, 149, 0.50);
+    border-radius: 14px;
+    padding: .5vw;
+    margin:.25vw;
 }
 
 .song-results-list li a {
