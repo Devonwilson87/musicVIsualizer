@@ -197,6 +197,16 @@ function fetchBgs() {
                     $('#bg-fill').css('background-image', 'none');
                     $('#bg-fill').html('<video autoplay muted loop><source src="' + videoUrl + '" type="video/mp4"></video>');
                     $('.uk-cover-container').css('background-image', 'url(' + hit.videos.medium.thumbnail + ')');
+                    
+                    // Make the video fill the viewport
+                    $('#bg-fill video').css({
+                        'position': 'fixed',
+                        'top': 0,
+                        'left': 0,
+                        'width': '100%',
+                        'height': '100%',
+                        'object-fit': 'cover'
+                    });
                 };
                 li.appendChild(img);
                 ul.appendChild(li);

@@ -8,13 +8,6 @@
     font-family: 'SulphurPoint-Regular' !important;
 }
 
-.uk-slider-container {
-    /* position: absolute !important; */
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-}
 
 .uk-grid {
     width: 100%;
@@ -22,22 +15,12 @@
     height: 100vh;
 }
 
-.uk-width-3-4 {
+#bg-fill {
     background-image: url(https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGh6N2l2ajU4MG40YXFtMnlweHc4bGw0dmRxdjVxMGZtcWtlcDJrdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/13bGgH9VnEDsuA/giphy.gif);
     background-size: cover;
     background-position: center;
     min-width: 100vw;
     padding: 0px;
-}
-
-.uk-cover-container {
-    background-image: url(https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGh6N2l2ajU4MG40YXFtMnlweHc4bGw0dmRxdjVxMGZtcWtlcDJrdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/13bGgH9VnEDsuA/giphy.gif);
-    background-size: contain;
-    background-repeat: no-repeat;
-    backdrop-filter: hue-rotate(90deg) blur(50px) !important;
-    background-position: center;
-    padding: 0px;
-    margin: 0px;
 }
 
 #results-bgs ul li img {
