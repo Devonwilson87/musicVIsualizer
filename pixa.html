@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lyrics Display</title>
+<!-- Include jQuery library -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+    <body>
+        <h1>Lyrics Display</h1>
+        <button onclick="fetchImages()">Get Images</button>
+        <div id="images"></div>
+
+        <script>
+        // Replace 'YOUR_PIXABAY_API_KEY' with your actual Pixabay API key
+        var API_KEY = '43005631-c2ca87ba477823d6f27abd8e4';
+        function fetchImages() {
+            var URL = "https://pixabay.com/api/?key=" + API_KEY + "&q=" + encodeURIComponent('birds');
+            $.getJSON(URL, function(data) {
+                if (parseInt(data.totalHits) > 0) {
+                    var imagesDiv = $('#images');
+                    imagesDiv.empty(); // Clear previous images
+                    $.each(data.hits, function(i, hit) {
+                        // Create image element and append it to the div
+                        $('<img>').attr('src', hit.previewURL).appendTo(imagesDiv);
+                    });
+                } else {
+                    console.log('No hits');
+                }
+            });
+        }
+        </script>
+    </body>
+</html>
