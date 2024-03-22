@@ -12,49 +12,24 @@
             <div class="search-container">
                 <!--search songs input-->
                 <form id="search-songs" class="uk-search uk-search-large" onsubmit="search(); return false;">
-                    <input id="searchInput" class="uk-search-input" type="search" placeholder="Search Songs" aria-label="Search" autocomplete="off">
+                    <input id="search-sgs" class="uk-search-input" type="search" placeholder="Search Songs" aria-label="Search" autocomplete="off" spellcheck="false">
                     <div id="results"></div>
                 </form>
             
 
                 <!--search visuals input-->
                 <form id="search-visuals" class="uk-search uk-search-large" onsubmit="fetchBgs(); return false;">
-                    <input id="search-bgs" class="uk-search-input" type="search" placeholder="Search Visuals" aria-label="Search" autocomplete="off">
+                    <input id="search-bgs" class="uk-search-input" type="search" placeholder="Search Visuals" aria-label="Search" autocomplete="off" spellcheck="false">
                     <div id="results-bgs"></div>
                 </form>
             </div>    
 
 
             <!--populate img src through GIPHY API. adjust to fill viewport-->
-            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="center: true">
+            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
                 <div id="toggle-animation" class="uk-position-center uk-panel"><span id="lyrics">1</span></div>
-                <ul class="uk-slider-items uk-grid uk-grid-match" uk-height-viewport="offset-top: true; offset-bottom: 30">
-                    <li class="uk-width-3-4">
-                        <div id="bg-fill" class="uk-cover-container">
-                            
-                        </div>
-                    </li>
-                    <li class="uk-width-3-4">
-                        <div class="uk-cover-container">
-                        </div>
-                    </li>
-                    <li class="uk-width-3-4">
-                        <div class="uk-cover-container">
-                        </div>
-                    </li>
-                    <li class="uk-width-3-4">
-                        <div class="uk-cover-container">
-                        </div>
-                    </li>
-                    <li class="uk-width-3-4">
-                        <div class="uk-cover-container">
-                        </div>
-                    </li>
-                </ul>
-
-                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href uk-slidenav-previous uk-slider-item="previous"></a>
-                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href uk-slidenav-next uk-slider-item="next"></a>
-
+                <ul class="uk-grid" uk-height-viewport="offset-top: true; offset-bottom: 30">
+                    <li id="bg-fill"></li>
             </div>
 
 
@@ -62,14 +37,14 @@
             <div class="np-container">
                 <h1 id="np-song">Song Name</h1>
                 <h2 id="np-artist">Artist Name</h2>
-                <h3 class="np-bg">Background Video</h3>
+                <h3 id="np-bg">Background Video</h3>
             </div>
 
             <div class="br-container">
 
                 <!--edit button target. use toggle-animation id for lyrics. potentially move this div to middle of body-->
                 <div class="lyrics-container">
-                    <button href="#toggle-animation" class="uk-button uk-button-default save-button" type="button" uk-toggle="target: #toggle-animation; animation: uk-animation-fade">Toggle</button>
+                    <button href="#toggle-animation" class="uk-button uk-button-default save-button" type="button" uk-toggle="target: #toggle-animation; animation: uk-animation-fade">Toggle Lyrics</button>
                 </div>
 
 
@@ -78,7 +53,7 @@
 
                     <div class="saved-visualzers">
 
-                        <a class="uk-button uk-button-default save-button" href="#modal-center1" uk-toggle>Saved Visualizers</a>
+                        <a class="uk-button uk-button-default save-button" href="#modal-center1" uk-toggle>Load Visualizer</a>
 
                         <div id="modal-center1" class="uk-flex-top" uk-modal>
                             <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
@@ -96,7 +71,7 @@
 
                     <!--save a visualizer modal-->
                     <div class="save-visualzers">
-                        <a class="uk-button uk-button-default save-button" href="#modal-center2" uk-toggle>Save a Visualizer</a>
+                        <a class="uk-button uk-button-default save-button" href="#modal-center2" uk-toggle>Save Visualizer</a>
 
                         <div id="modal-center2" class="uk-flex-top" uk-modal>
                             <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
