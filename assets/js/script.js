@@ -75,6 +75,9 @@ function displayResults(tracks) {
             li.textContent = track.name + ' - ' + track.artists[0].name;
             li.onclick = function() {
 
+                var volumeSlider = document.getElementById('volume-slider');
+                volumeSlider.style.display = 'block';
+
                 resultsContainer.removeChild(ul);
 
                 document.getElementById('search-sgs').value = '';
@@ -88,6 +91,7 @@ function displayResults(tracks) {
                 
                 // Create audio element
                 const audio = document.createElement('audio');
+                audio.setAttribute('id', 'audio');
                 const head = document.getElementById('head');
                 audio.controls = false;
                 audio.src = track.preview_url;
@@ -228,3 +232,8 @@ function shuffleArray(array) {
     }
     return array;
 }
+
+let volume = document.getElementById('volume-slider');
+volume.addEventListener("change", function(e) {
+    audio.volume = e.currentTarget.value / 100;
+})
