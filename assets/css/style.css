@@ -191,7 +191,7 @@
 }
 
 #save-vis-name::placeholder {
-    color: rgba(255, 255, 255);
+    color: rgb(199, 199, 199);
 }
 
 #save-vis-name:focus {

@@ -252,6 +252,7 @@ function saveVisualizer(event) {
     // Get relevant data to save (e.g., selected song, artist, background video URL, audio URL)
     const selectedSong = document.getElementById('np-song').textContent;
     const selectedArtist = document.getElementById('np-artist').textContent;
+    const selectedLyrics = document.getElementById('lyrics').innerHTML;
     const selectedVideoUrl = document.querySelector('#bg-fill video source').getAttribute('src');
     const selectedAudioUrl = document.getElementById('audio').getAttribute('src');
 
@@ -260,6 +261,7 @@ function saveVisualizer(event) {
         name: visualizerName,
         song: selectedSong,
         artist: selectedArtist,
+        lyrics: selectedLyrics,
         videoUrl: selectedVideoUrl,
         audioUrl: selectedAudioUrl // Include audio URL in the saved data
     };
@@ -300,6 +302,9 @@ document.querySelector('.saved-visualizers-list').addEventListener('click', func
             const audio = document.getElementById('audio');
             audio.setAttribute('src', visualizerData.audioUrl);
             audio.play(); // Start playing the audio
+
+            const selectedLyrics = document.getElementById('lyrics');
+            selectedLyrics.innerHTML = visualizerData.lyrics;
 
             // Update the list of saved selections in the first modal
             updateSavedVisualizersList();
