@@ -90,12 +90,9 @@ function displayResults(tracks) {
                 });
                 
                 // Create audio element
-                const audio = document.createElement('audio');
-                audio.setAttribute('id', 'audio');
-                const head = document.getElementById('head');
-                audio.controls = false;
+                const audio = document.getElementById('audio');
                 audio.src = track.preview_url;
-                head.appendChild(audio);
+
                 
                 // Autoplay if not already playing
                 if (audio !== currentAudio) {
@@ -237,3 +234,85 @@ let volume = document.getElementById('volume-slider');
 volume.addEventListener("change", function(e) {
     audio.volume = e.currentTarget.value / 100;
 })
+
+// Saving Selections
+document.querySelector('#save-visualizers').addEventListener('submit', saveVisualizer);
+
+// Trigger saveVisualizer function when the button is clicked
+document.getElementById('save-visualizers-btn').addEventListener('click', saveVisualizer);
+
+function saveVisualizer(event) {
+    event.preventDefault(); // Prevent the default form submission
+    const visualizerName = document.getElementById('save-vis-name').value;
+    if (!visualizerName) {
+        alert('Please enter a name for your visualizer.');
+        return;
+    }
+
+    // Get relevant data to save (e.g., selected song, artist, background video URL, audio URL)
+    const selectedSong = document.getElementById('np-song').textContent;
+    const selectedArtist = document.getElementById('np-artist').textContent;
+    const selectedVideoUrl = document.querySelector('#bg-fill video source').getAttribute('src');
+    const selectedAudioUrl = document.getElementById('audio').getAttribute('src');
+
+    // Construct an object containing the data to save
+    const visualizerData = {
+        name: visualizerName,
+        song: selectedSong,
+        artist: selectedArtist,
+        videoUrl: selectedVideoUrl,
+        audioUrl: selectedAudioUrl // Include audio URL in the saved data
+    };
+
+    // Save the data to localStorage
+    localStorage.setItem(visualizerName, JSON.stringify(visualizerData));
+
+    // Update the list of saved selections in the first modal
+    updateSavedVisualizersList();
+}
+
+
+// Loading Selections
+document.querySelector('.saved-visualzers-list').addEventListener('click', function(event) {
+    if (event.target.tagName === 'LI') {
+        const visualizerName = event.target.textContent;
+
+        // Retrieve the data from localStorage
+        const visualizerData = JSON.parse(localStorage.getItem(visualizerName));
+
+        if (visualizerData) {
+            // Populate the application with the retrieved data
+            document.getElementById('np-song').textContent = visualizerData.song;
+            document.getElementById('np-artist').textContent = visualizerData.artist;
+            const bgFill = document.getElementById('bg-fill');
+            bgFill.innerHTML = `<video autoplay muted loop><source src="${visualizerData.videoUrl}" type="video/mp4"></video>`;
+
+            // Update the audio element
+            const audio = document.getElementById('audio');
+            audio.setAttribute('src', visualizerData.audioUrl);
+            audio.play(); // Start playing the audio
+
+            // Update the list of saved selections in the first modal
+            updateSavedVisualizersList();
+        } else {
+            alert('Failed to load visualizer. Please try again.');
+        }
+    }
+});
+
+// Function to update the list of saved selections in the first modal
+function updateSavedVisualizersList() {
+    const savedVisualizersList = document.querySelector('.saved-visualzers-list');
+    savedVisualizersList.innerHTML = '';
+
+    // Iterate over localStorage keys to populate the list
+    for (let i = 0; i < localStorage.length; i++) {
+        const visualizerName = localStorage.key(i);
+        const listItem = document.createElement('li');
+        listItem.textContent = visualizerName;
+        savedVisualizersList.appendChild(listItem);
+    }
+}
+
+// Call updateSavedVisualizersList once when the script loads
+updateSavedVisualizersList();

@@ -5,6 +5,7 @@
         <title>Music Visualizer</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.19.2/dist/css/uikit.min.css" />
         <link rel="stylesheet" href="assets/css/style.css" />
+        <audio id="audio"></audio>
     </head>
 
     <body>
@@ -79,9 +80,10 @@
 
                                 <button class="uk-modal-close-default" type="button" uk-close></button>
 
-                                <form>
+                                <form id="save-visualizers" type="submit">
                                     <span>Name your visualizer:   </span>
-                                    <input class="uk-input uk-width-1-1" type="text" placeholder="uk-width-1-1" aria-label="uk-width-1-1">
+                                    <input id="save-vis-name" class="uk-input uk-width-1-1" type="type" placeholder="uk-width-1-1" aria-label="uk-width-1-1">
+                                    <button id="save-visualizers-btn" type="button" class="uk-button uk-button-default">Save</button>
                                 </form>
 
                             </div>
