@@ -273,7 +273,7 @@ function saveVisualizer(event) {
 
 
 // Loading Selections
-document.querySelector('.saved-visualzers-list').addEventListener('click', function(event) {
+document.querySelector('.saved-visualizers-list').addEventListener('click', function(event) {
     if (event.target.tagName === 'LI') {
         const visualizerName = event.target.textContent;
 
@@ -286,6 +286,15 @@ document.querySelector('.saved-visualzers-list').addEventListener('click', funct
             document.getElementById('np-artist').textContent = visualizerData.artist;
             const bgFill = document.getElementById('bg-fill');
             bgFill.innerHTML = `<video autoplay muted loop><source src="${visualizerData.videoUrl}" type="video/mp4"></video>`;
+
+            $('#bg-fill video').css({
+                'position': 'fixed',
+                'top': 0,
+                'left': 0,
+                'width': '100%',
+                'height': '100%',
+                'object-fit': 'cover'
+            });
 
             // Update the audio element
             const audio = document.getElementById('audio');
@@ -302,7 +311,7 @@ document.querySelector('.saved-visualzers-list').addEventListener('click', funct
 
 // Function to update the list of saved selections in the first modal
 function updateSavedVisualizersList() {
-    const savedVisualizersList = document.querySelector('.saved-visualzers-list');
+    const savedVisualizersList = document.querySelector('.saved-visualizers-list');
     savedVisualizersList.innerHTML = '';
 
     // Iterate over localStorage keys to populate the list

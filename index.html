@@ -38,7 +38,6 @@
             <div class="np-container">
                 <h1 id="np-song">Song Name</h1>
                 <h2 id="np-artist">Artist Name</h2>
-                <h3 id="np-bg">Background Video</h3>
                 <input type="range" id="volume-slider" value="100">
             </div>
 
@@ -58,12 +57,12 @@
                         <a class="uk-button uk-button-default save-button" href="#modal-center1" uk-toggle>Load Visualizer</a>
 
                         <div id="modal-center1" class="uk-flex-top" uk-modal>
-                            <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+                            <div id="modal1" class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
 
                                 <button class="uk-modal-close-default" type="button" uk-close></button>
 
-                                <ul class="saved-visualzers-list">
-                                    <li>test</li>
+                                <ul class="saved-visualizers-list" aria-placeholder="tst">
+                                    <li>No visualizers saved.</li>
                                 </ul>
 
                             </div>
@@ -76,13 +75,13 @@
                         <a class="uk-button uk-button-default save-button" href="#modal-center2" uk-toggle>Save Visualizer</a>
 
                         <div id="modal-center2" class="uk-flex-top" uk-modal>
-                            <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+                            <div id="modal2" class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
 
                                 <button class="uk-modal-close-default" type="button" uk-close></button>
 
                                 <form id="save-visualizers" type="submit">
                                     <span>Name your visualizer:   </span>
-                                    <input id="save-vis-name" class="uk-input uk-width-1-1" type="type" placeholder="uk-width-1-1" aria-label="uk-width-1-1">
+                                    <input id="save-vis-name" class="uk-input uk-width-1-1" type="type" placeholder="uk-width-1-1" aria-label="uk-width-1-1" autocomplete="off" spellcheck="false">
                                     <button id="save-visualizers-btn" type="button" class="uk-button uk-button-default">Save</button>
                                 </form>
 
