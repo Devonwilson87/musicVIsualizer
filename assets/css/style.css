@@ -6,8 +6,13 @@
 
 * {
     font-family: 'SulphurPoint-Regular' !important;
+    overflow: hidden;
+    cursor: default;
 }
 
+input:hover {
+    cursor: text;
+}
 
 .uk-grid {
     width: 100%;
@@ -62,6 +67,7 @@
     left: 1vw;
     padding: 1vh;
     border-radius: 2vh;
+    max-width: 50vw;
 }
 
 .np-container h1, h2, h3 {
@@ -78,6 +84,10 @@
 .np-container:hover #np-artist,
 .np-container:hover #np-bg {
     color: rgba(105, 7, 0, 0.74);
+}
+
+#volume-slider {
+    display: none;
 }
 
 
@@ -163,14 +173,90 @@
     font-size: 115%;
 }
 
+#modal1,
+#modal2 {
+    border-radius: 10px;
+    background-color: rgba(223, 255, 242, 0.5);
+    color: rgba(255, 255, 255);
+    user-select: none;
+}
+
+.uk-modal-close-default {
+    color: rgba(255, 255, 255);
+}
+
+.uk-modal-close-default:hover {
+    color: rgba(105, 7, 0, 0.74);
+}
+
+#save-vis-name {
+    background-color: darkgray;
+    border-radius: 5px;
+    transition: .25s;
+}
+
+#save-vis-name::placeholder {
+    color: rgb(199, 199, 199);
+}
+
+#save-vis-name:focus {
+    color: rgba(105, 7, 0, 0.74);
+    border-color: rgba(0, 255, 149, 0.50);
+    border-radius: 10px;
+}
+
+#save-visualizers-btn {
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(0, 255, 149, 0.50);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 115%;
+    margin-top: 10px;
+    transition: .5s;
+}
+
+#save-visualizers-btn:hover {
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(0, 255, 149, 0.80);
+    color: rgba(105, 7, 0, 0.74);
+    font-size: 115%;
+}
+
+.saved-visualizers-list li:hover {
+    color: rgba(105, 7, 0, 0.74);
+}
+
 
 #toggle-animation {
     z-index: 1;
+    transition: 0.5s;
 }
 
 
 #lyrics {
     white-space: pre-wrap;
+    user-select: none;
+    line-height: 0.85;
+    padding: 5px;
+}
+
+
+
+#toggle-animation:hover {
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(0, 255, 149, 0.25);
+    color: rgba(105, 7, 0, 0.84);
+    font-size: 105%;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+#lyrics p {
+    padding: 20px;
 }
 
 #search-sgs {
