@@ -1,3 +1,17 @@
+function showNextStanza(index) {
+    const lyricsElement = document.getElementById('lyrics');
+    const stanzas = lyricsElement.querySelectorAll('p');
+
+    if (index < stanzas.length - 1) { // If not the last stanza
+        stanzas[index].style.display = 'none'; // Hide current stanza
+        stanzas[index + 1].style.display = 'block'; // Show next stanza
+        currentStanzaIndex = index + 1; // Update current stanza index
+    } else {
+        // Handle when the last stanza is reached (optional)
+        console.log('End of lyrics');
+    }
+}
+
 let accessToken = '';
 
 async function getToken() {
@@ -99,7 +113,7 @@ function displayResults(tracks) {
                     if (currentAudio) {
                         currentAudio.pause(); // Pause the currently playing audio
                     }
-                    audio.play(); // Start playing the new audio
+                    audio.play(); // Start playing the neqw audio
                     currentAudio = audio; // Update the reference to the currently playing audio
                 }
 
@@ -144,19 +158,7 @@ function displayResults(tracks) {
                         });
                 }
                 
-                function showNextStanza(index) {
-                    const lyricsElement = document.getElementById('lyrics');
-                    const stanzas = lyricsElement.querySelectorAll('p');
-                
-                    if (index < stanzas.length - 1) { // If not the last stanza
-                        stanzas[index].style.display = 'none'; // Hide current stanza
-                        stanzas[index + 1].style.display = 'block'; // Show next stanza
-                        currentStanzaIndex = index + 1; // Update current stanza index
-                    } else {
-                        // Handle when the last stanza is reached (optional)
-                        console.log('End of lyrics');
-                    }
-                }
+
                 fetchLyrics();
             };
             ul.appendChild(li);
@@ -253,7 +255,7 @@ function saveVisualizer(event) {
     const selectedSong = document.getElementById('np-song').textContent;
     const selectedArtist = document.getElementById('np-artist').textContent;
     const selectedLyrics = document.getElementById('lyrics').innerHTML;
-    const selectedVideoUrl = document.querySelector('#bg-fill video source').getAttribute('src');
+    const selectedVideoUrl = document.querySelector('#bg-fill video source').getAttribute('src').value;
     const selectedAudioUrl = document.getElementById('audio').getAttribute('src');
 
     // Construct an object containing the data to save
@@ -303,8 +305,13 @@ document.querySelector('.saved-visualizers-list').addEventListener('click', func
             audio.setAttribute('src', visualizerData.audioUrl);
             audio.play(); // Start playing the audio
 
+
             const selectedLyrics = document.getElementById('lyrics');
             selectedLyrics.innerHTML = visualizerData.lyrics;
+            const lyricsParagraphs = selectedLyrics.querySelectorAll('p');
+            lyricsParagraphs.forEach((paragraph, index) => {
+                paragraph.onclick = () => showNextStanza(index);
+            });
 
             // Update the list of saved selections in the first modal
             updateSavedVisualizersList();
@@ -330,3 +337,7 @@ function updateSavedVisualizersList() {
 
 // Call updateSavedVisualizersList once when the script loads
 updateSavedVisualizersList();
+
+audio.addEventListener('canplaythrough', function() {
+    audio.play();
+});
