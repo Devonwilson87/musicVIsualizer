@@ -1,14 +1,27 @@
+// Wait for the DOM content to load
+document.addEventListener('DOMContentLoaded', function() {
+    // Get the audio element
+    const audio = document.getElementById('audio');
+    
+    // Set the initial volume level (between 0 and 1)
+    audio.volume = 0.1; // Example volume level (30% of maximum volume)
+});
+
 function showNextStanza(index) {
     const lyricsElement = document.getElementById('lyrics');
     const stanzas = lyricsElement.querySelectorAll('p');
+    const totalStanzas = stanzas.length;
 
-    if (index < stanzas.length - 1) { // If not the last stanza
+    // If not the last stanza, show the next stanza
+    if (index < totalStanzas - 1) {
         stanzas[index].style.display = 'none'; // Hide current stanza
         stanzas[index + 1].style.display = 'block'; // Show next stanza
         currentStanzaIndex = index + 1; // Update current stanza index
     } else {
-        // Handle when the last stanza is reached (optional)
-        console.log('End of lyrics');
+        // Loop back to the beginning if at the last stanza
+        stanzas[index].style.display = 'none'; // Hide current stanza
+        stanzas[0].style.display = 'block'; // Show the first stanza
+        currentStanzaIndex = 0; // Reset current stanza index
     }
 }
 
@@ -140,7 +153,11 @@ function displayResults(tracks) {
                             lyricsElement.innerHTML = ''; // Clear existing lyrics
                             
                             if (data.lyrics) {
-                                const stanzas = data.lyrics.split('\n\n');
+                                const lines = data.lyrics.split('\r\n').slice(1);
+                                // Join the remaining lines back into a single string
+                                const cleanedLyrics = lines.join('\r\n');
+                                // Split the cleaned lyrics into stanzas
+                                const stanzas = cleanedLyrics.split('\n\n');
                                 stanzas.forEach((stanza, index) => {
                                     const stanzaElement = document.createElement('p');
                                     stanzaElement.textContent = stanza;
