@@ -304,6 +304,8 @@ document.querySelector('.saved-visualizers-list').addEventListener('click', func
             const audio = document.getElementById('audio');
             audio.setAttribute('src', visualizerData.audioUrl);
             audio.play(); // Start playing the audio
+            var volumeSlider = document.getElementById('volume-slider');
+            volumeSlider.style.display = 'block';
 
 
             const selectedLyrics = document.getElementById('lyrics');

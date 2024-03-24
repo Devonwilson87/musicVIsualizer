@@ -7,8 +7,12 @@
 * {
     font-family: 'SulphurPoint-Regular' !important;
     overflow: hidden;
+    cursor: default;
 }
 
+input:hover {
+    cursor: text;
+}
 
 .uk-grid {
     width: 100%;
@@ -216,6 +220,10 @@
     background-color: rgba(0, 255, 149, 0.80);
     color: rgba(105, 7, 0, 0.74);
     font-size: 115%;
+}
+
+.saved-visualizers-list li:hover {
+    color: rgba(105, 7, 0, 0.74);
 }
 
 
