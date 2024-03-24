@@ -233,6 +233,10 @@ input:hover {
     transition: 0.5s;
 }
 
+#lyrics p :hover #toggle-animation {
+    background-color: rgba(0, 255, 149, 0.80);
+}
+
 
 #lyrics {
     white-space: pre-wrap;
@@ -241,22 +245,10 @@ input:hover {
     padding: 5px;
 }
 
-
-
-#toggle-animation:hover {
-    border: none;
-    border-radius: 10px;
-    background-color: rgba(0, 255, 149, 0.25);
-    color: rgba(105, 7, 0, 0.84);
-    font-size: 105%;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-top: 0px;
-    padding-bottom: 0px;
-}
-
 #lyrics p {
     padding: 20px;
+    font-size: 110%;
+    text-shadow:rgba(105, 7, 0) 1px 1px 2px;
 }
 
 #search-sgs {
