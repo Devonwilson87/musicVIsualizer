@@ -355,6 +355,14 @@ input:hover {
         border-radius: 10px;
     }
 
+    .np-container h1 {
+        font-size: 130%;
+    }
+    
+    .np-container h2 {
+        font-size: 120%;
+    }
+
     .uk-button {
         font-size: 80%;
         line-height: 25px;
@@ -411,6 +419,14 @@ input:hover {
     #list-bgs img:hover {
         border: 4px solid cyan;
         border-radius: 15px;
+    }
+
+    .np-container h1 {
+        font-size: 140%;
+    }
+    
+    .np-container h2 {
+        font-size: 130%;
     }
 
     .uk-button {
