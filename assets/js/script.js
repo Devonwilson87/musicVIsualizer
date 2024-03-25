@@ -272,7 +272,7 @@ function saveVisualizer(event) {
     const selectedSong = document.getElementById('np-song').textContent;
     const selectedArtist = document.getElementById('np-artist').textContent;
     const selectedLyrics = document.getElementById('lyrics').innerHTML;
-    const selectedVideoUrl = document.querySelector('#bg-fill video source').getAttribute('src').value;
+    const selectedVideoUrl = document.querySelector('#bg-fill video source').getAttribute('src');
     const selectedAudioUrl = document.getElementById('audio').getAttribute('src');
 
     // Construct an object containing the data to save
