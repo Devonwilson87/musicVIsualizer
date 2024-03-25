@@ -330,7 +330,7 @@ input:hover {
 }
 
 
-@media screen and (min-width: 400px) {
+@media (min-width: 400px) {
     #search-songs,
     #search-visuals {
         max-width: 35vw;
@@ -395,7 +395,7 @@ input:hover {
 
 }
 
- @media screen and (min-width: 600px) {
+ @media (min-width: 600px) {
     #search-songs,
     #search-visuals {
         max-width: 25vw;
