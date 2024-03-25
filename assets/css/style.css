@@ -21,7 +21,7 @@ input:hover {
 }
 
 #bg-fill {
-    background-image: url(https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGh6N2l2ajU4MG40YXFtMnlweHc4bGw0dmRxdjVxMGZtcWtlcDJrdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/13bGgH9VnEDsuA/giphy.gif);
+    background-image: url(https://cdn.pixabay.com/photo/2016/03/26/22/44/sky-1281662_1280.jpg);
     background-size: cover;
     background-position: center;
     min-width: 100vw;
@@ -433,7 +433,7 @@ input:hover {
 
 
     #lyrics {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     #modal1 {
