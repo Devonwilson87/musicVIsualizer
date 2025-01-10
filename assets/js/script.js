@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     audio.volume = 0.1; // Example volume level (30% of maximum volume)
 });
 
-
+/////// LYRICS ////////
 function showNextStanza(index) {
     const lyricsElement = document.getElementById('lyrics');
     const stanzas = lyricsElement.querySelectorAll('p');
